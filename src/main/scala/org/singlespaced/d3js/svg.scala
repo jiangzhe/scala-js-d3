@@ -41,7 +41,7 @@ trait SvgObject extends js.Object {
 package svg {
 
 @js.native
-trait Line[T] extends js.Function1[T,String] {
+trait Line[T] extends js.Function1[js.Array[T],String] {
 
   def apply[T]():Line[T] = js.native
 
