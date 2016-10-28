@@ -112,7 +112,9 @@ package selection {
     def on(`type`: String): DatumFunction[Unit] = js.native
 
     //  def on(`type`: String, listener: DatumFunction[Unit], capture: Boolean = false): T = js.native
-    def on(`type`: String, listener: ThisFunction2[dom.EventTarget, Datum, Int, Unit], capture: Boolean = false): T = js.native
+    def on[TH <: dom.EventTarget](`type`: String, listener: ThisFunction2[TH, Datum, Int, Unit], capture: Boolean = false): T = js.native
+
+//    def on[TH <: dom.EventTarget](`type`: String, listener: ThisFunction1[TH, Datum, Unit], capture: Boolean = false): T = js.native
 
     def transition(name: String = ???): Transition[Datum] = js.native
 

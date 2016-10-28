@@ -18,8 +18,11 @@ package behavior {
 trait Drag[Datum] extends js.Function1[Selection[Datum],Unit] {
 
   def on(`type`: String): js.Function2[Datum, Double, Any] = js.native
-
+//  def on(`type`: String): js.Function1[Datum, Any] = js.native
   def on(`type`: String, listener: js.Function2[Datum, Double, Any]): Drag[Datum] = js.native
+//  def on(`type`: String, listener: js.Function1[Datum, Any]): Drag[Datum] = js.native
+
+  def on[T](`type`: String, listener: js.ThisFunction2[T, Datum, Double, Any]): Drag[Datum] = js.native
 
   def origin(): js.Function2[Datum, Double, js.Any] = js.native
 
